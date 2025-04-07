@@ -1,0 +1,96 @@
+.info-section {
+    padding: 40px 20px;
+    background-color: #50E3C2;
+    border-radius: 16px;
+    margin: 40px 20px;
+
+    .info-title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: #0c3056;
+      margin-bottom: 24px;
+    }
+  
+    .info-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  
+      .info-card {
+        background-color: #5be2c4;
+        padding: 20px;
+        border-radius: 8px;
+        border: 2px solid #103056;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+  
+        .icon-wrapper {
+            background-color: #103056;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; // 🔒 esto ayuda a evitar recortes visuales por desbordes
+          }
+          
+          .icon-wrapper mat-icon {
+            color: white;
+            font-size: 32px;
+            line-height: 1; // 🔧 importante para que no agregue espacio extra
+            width: 32px;
+            height: 32px;
+          }
+          
+          
+  
+        h3 {
+          margin: 0;
+          font-size: 16px;
+          color: #0c3056;
+        }
+  
+        p {
+          font-size: 14px;
+          color: #0c3056;
+          margin: 0;
+        }
+  
+        .card-button {
+          background-color: #103056 !important;
+          width: 100%;
+          color: #F6F6F6 !important;
+          border-radius: 6px;
+          font-size: 14px;
+          justify-content: center;
+          font-weight: 600;
+          mat-icon {
+            font-size: 18px;
+            margin-right: 4px;
+          }
+        }
+      }
+    }
+  
+    // 🌐 Versión Desktop
+    @media (min-width: 768px) {
+        .info-cards {
+          flex-direction: row;
+    
+          .info-card {
+            flex: 1;
+    
+            .card-button {
+              width: auto;
+              align-self: flex-start;
+              padding: 6px 12px;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }

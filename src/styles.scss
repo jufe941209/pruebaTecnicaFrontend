@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --border-radius: 16px;
+}
+
+img,
+button,
+input,
+.mat-mdc-button,
+.mat-mdc-outlined-button,
+.mat-mdc-raised-button,
+.mat-mdc-card,
+.card,
+.card-overlay,
+.bg-cover,
+.bg-image,
+.hero-background,
+.card-background,
+.background-container {
+  border-radius: var(--border-radius) !important;
+  overflow: hidden;
+}

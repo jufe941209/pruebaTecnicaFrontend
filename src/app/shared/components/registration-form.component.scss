@@ -1,0 +1,134 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Centra textos también */
+  
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      text-align: left; /* Vuelve a la normalidad en desktop */
+    }
+  }
+
+  form {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px; /* 👈 Redondea todo el form */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Opcional para sombra suave */
+  }
+  
+  .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 👈 Cambiar a CENTER en desktop también */
+    text-align: center;
+    max-width: 500px;
+    padding: 1rem;
+  
+    @media (min-width: 768px) {
+      max-width: 600px;
+      align-items: center; /* 👈 AQUÍ antes tenías flex-start, cámbialo a center */
+      text-align: left; /* textos siguen alineados a la izquierda */
+    }
+  
+
+  h1 {
+    color: #103056;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+
+    @media (min-width: 768px) {
+      font-size: 32px; /* 👈 Títulos más grandes en desktop */
+    }
+}
+p {
+    color: #000500;
+    margin-bottom: 2rem;
+    font-size: 16px;
+
+    @media (min-width: 768px) {
+      font-size: 18px; /* 👈 Texto un poquito más grande */
+    }
+  }
+  
+  }
+  
+  .background-box {
+    background-color: #47E6C4;
+  width: 200px;
+  height: 200px;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  @media (min-width: 768px) {
+    width: 250px; /* 👈 Fondo más grande en desktop */
+    height: 250px;
+  }
+}
+
+  .foreground-image {
+    width: 400px; /* Más grande que el fondo */
+    height: auto;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra la imagen */
+    z-index: 2; /* Se asegura que esté por ENCIMA */
+    @media (min-width: 768px) {
+        width: 450px; /* 👈 Imagen más grande en desktop */
+      }
+  }
+  
+
+  .right {
+    flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center; /* Centra en mobile */
+
+  @media (min-width: 768px) {
+    align-items: flex-start; /* Normal en desktop */
+  }
+  
+    .full-width {
+      width: 100%;
+    }
+  
+    .terms {
+        margin: 1rem 0;
+    }
+  
+    .error {
+      color: red;
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
+    }
+  
+    .submit-button {
+      background-color: #47e6c1;
+      color: #000;
+      font-weight: bold;
+      &:hover {
+        background-color: #3dd1ad;
+      }
+
+      .link {
+        color: #1976d2;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+  }

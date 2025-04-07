@@ -1,0 +1,86 @@
+.faq-container {
+    width: 100vw; /* 100% del viewport */
+    min-height: 100vh; /* Si quieres que mínimo ocupe toda la altura de la pantalla */
+    padding: 60px 24px;
+    background-color: #f7f9fc; /* Opcional, para darle fondo */
+  }
+  
+  
+  .faq-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 32px;
+    color: #103056;
+    text-align: center;
+  }
+  
+  .faq-item {
+    margin-bottom: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .faq-question {
+    width: 100%;
+    background-color: #47E6C4;
+    color: #103056;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: left;
+    border-radius: 12px;
+  }
+  
+  .faq-question:hover {
+    background-color: #3bd4b4;
+  }
+  
+  .faq-question.open {
+    background-color: rgba(71, 230, 196, 0.4); /* 40% opaco */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  .arrow {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .faq-question.open .arrow {
+    transform: rotate(180deg);
+  }
+  
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    background: #ffffff;
+    border: 2px solid #103056;
+    border-top: none;
+    padding: 0 24px;
+    font-size: 1rem;
+    color: #333;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+  }
+  
+  .faq-answer.open {
+    max-height: 500px; /* Asegura espacio suficiente */
+    padding: 20px 24px;
+    transition: max-height 0.6s ease, padding 0.6s ease;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+  
+  @media (min-width: 768px) {
+    .faq-container {
+      padding: 60px 20px;
+    }
+  }
+  

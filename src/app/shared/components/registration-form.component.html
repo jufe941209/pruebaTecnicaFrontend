@@ -1,0 +1,93 @@
+<div class="container">
+    <!-- IZQUIERDA: Texto + Imagen -->
+    <div class="left">
+      <h1>Lorem ipsum dolor sit amet</h1>
+      <p>Aliquam vulputate magna in viverra mattis. Aliquam volutpat dui fringilla leo posuere, sed facilisis tortor consequat.</p>
+      <div class="background-box">
+        <img src="/assets/images/register.png" alt="Infografía" class="foreground-image" />
+      </div>
+    </div>
+  
+    <!-- DERECHA: Formulario -->
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="right form-container">
+      <!-- Tipo de Documento -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Tipo de documento *</mat-label>
+        <mat-select formControlName="documentType" required>
+          <mat-option value="" disabled>Selecciona el tipo de tu documento...</mat-option>
+          <mat-option value="cedula">Cédula</mat-option>
+          <mat-option value="pasaporte">Pasaporte</mat-option>
+          <mat-option value="tarjeta">Tarjeta de Identidad</mat-option>
+          <mat-option value="extranjero">Cédula de Extranjería</mat-option>
+        </mat-select>
+        <mat-error *ngIf="formulario.get('documentType')?.hasError('required')">
+          Selecciona un tipo de documento
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Número de Documento -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Número de documento *</mat-label>
+        <input matInput formControlName="documentNumber" required maxlength="15" placeholder="Ingresa tu número de documento..." />
+        <mat-error *ngIf="formulario.get('documentNumber')?.hasError('required')">
+          Número de documento requerido
+        </mat-error>
+        <mat-error *ngIf="formulario.get('documentNumber')?.hasError('pattern')">
+          Solo números permitidos
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Nombre Completo -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre completo *</mat-label>
+        <input matInput formControlName="fullName" required placeholder="Ingresa tu nombre completo..." />
+        <mat-error *ngIf="formulario.get('fullName')?.hasError('required')">
+          Nombre completo requerido
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Correo Electrónico -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Correo electrónico *</mat-label>
+        <input matInput formControlName="email" required placeholder="Ingresa tu correo electrónico..." />
+        <mat-error *ngIf="formulario.get('email')?.hasError('required')">
+          Correo requerido
+        </mat-error>
+        <mat-error *ngIf="formulario.get('email')?.hasError('email')">
+          Ingresa un correo válido
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Número Celular -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Número celular *</mat-label>
+        <span matPrefix>+57&nbsp;</span>
+        <input matInput formControlName="phoneNumber" required maxlength="10" placeholder="000 000 0000" />
+        <mat-error *ngIf="formulario.get('phoneNumber')?.hasError('required')">
+          Número celular requerido
+        </mat-error>
+        <mat-error *ngIf="formulario.get('phoneNumber')?.hasError('pattern')">
+          Solo números permitidos
+        </mat-error>
+        <mat-error *ngIf="formulario.get('phoneNumber')?.hasError('minlength') || formulario.get('phoneNumber')?.hasError('maxlength')">
+          Debe tener 10 dígitos
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Aceptar Términos -->
+      <mat-checkbox formControlName="terms" class="terms">
+        Acepto los 
+        <span class="link">Términos y condiciones</span> y la 
+        <span class="link">Política de manejo de datos</span>.
+      </mat-checkbox>
+      <div class="error" *ngIf="formulario.get('terms')?.hasError('requiredTrue') && formulario.get('terms')?.touched">
+        Debes aceptar los términos para continuar
+      </div>
+  
+      <!-- Botón -->
+      <button mat-raised-button color="primary" class="submit-button full-width" type="submit" [disabled]="formulario.invalid">
+        CLICK HERE
+      </button>
+    </form>
+  </div>
+  
