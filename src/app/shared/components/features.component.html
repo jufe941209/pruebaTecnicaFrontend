@@ -1,28 +1,46 @@
+<!-- Section: Information Area -->
 <section class="info-section">
-    <div class="info-container">
-      <!-- Columna izquierda -->
-      <div class="info-left">
-        <h2 class="info-title">Lorem ipsum<br><span>dolor sit amet</span></h2>
-        <p class="info-description">
-          La mejor oportunidad que tienes para actualizar tus conocimientos.
-        </p>
-        <img src="/assets/images/fabrica.png" alt="Trabajadora" class="info-image" />
-      </div>
-  
-      <!-- Columna derecha -->
-      <div class="info-right">
-        <div class="info-item" *ngFor="let item of items">
-          <div class="icon-circle">
-            <mat-icon>{{ item.icon }}</mat-icon>
-          </div>
-          <div class="text-content">
-            <h3 class="item-title">Sed accumsan erat id scelerisque sodales</h3>
-            <p class="item-desc">
-              Aliquam vulputate magna in viverra mattis. Aliquam volutpat dui fringilla leo posuere, sed facilisis tortor consequat.
-            </p>
-          </div>
+  <div class="info-container">
+
+    <!-- Left Column: Title, Description, and Image -->
+    <div class="info-left">
+      <h2 class="info-title">
+        Lorem ipsum<br>
+        <span>dolor sit amet</span>
+      </h2>
+
+      <p class="info-description">
+        La mejor oportunidad que tienes para actualizar tus conocimientos.
+      </p>
+
+      <img 
+        src="/assets/images/fabrica.png" 
+        alt="Trabajadora" 
+        class="info-image"
+      />
+    </div>
+
+    <!-- Right Column: Dynamic List of Items -->
+    <div class="info-right">
+
+      <!-- Info Item: Icon and Text Content -->
+      <div class="info-item" *ngFor="let item of items">
+        <div class="icon-circle">
+          <mat-icon>{{ item.icon }}</mat-icon>
+        </div>
+
+        <div class="text-content">
+          <h3 class="item-title">
+            Sed accumsan erat id scelerisque sodales
+          </h3>
+
+          <p class="item-desc">
+            Aliquam vulputate magna in viverra mattis. Aliquam volutpat dui fringilla leo posuere, sed facilisis tortor consequat.
+          </p>
         </div>
       </div>
+
     </div>
-  </section>
-  
+
+  </div>
+</section>

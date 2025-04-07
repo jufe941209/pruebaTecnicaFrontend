@@ -1,67 +1,83 @@
+/* CONTENEDOR PRINCIPAL */
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem; /* Padding base en mobile */
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Centra textos en mobile */
+  animation: fadeInUp 1s ease; /* Animación al cargar */
+
+  @media (min-width: 768px) {
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    text-align: center; /* Centra textos también */
-  
-    @media (min-width: 768px) {
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      text-align: left; /* Vuelve a la normalidad en desktop */
-    }
+    text-align: left; /* Textos alineados a la izquierda en desktop */
+    padding: 5rem; /* 👉 Padding extra en desktop */
+  }
+}
+
+/* FORMULARIO */
+form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+/* Efecto hover en formulario */
+form:hover {
+  transform: translateY(-5px); /* Eleva el form */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más profunda */
+}
+
+/* COLUMNA IZQUIERDA */
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrado en mobile */
+  text-align: center;
+  max-width: 500px;
+  padding: 1rem;
+
+  @media (min-width: 768px) {
+    max-width: 600px;
+    align-items: center; /* Sigue centrado */
+    text-align: left; /* Textos alineados a la izquierda */
   }
 
-  form {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px; /* 👈 Redondea todo el form */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Opcional para sombra suave */
-  }
-  
-  .left {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* 👈 Cambiar a CENTER en desktop también */
-    text-align: center;
-    max-width: 500px;
-    padding: 1rem;
-  
-    @media (min-width: 768px) {
-      max-width: 600px;
-      align-items: center; /* 👈 AQUÍ antes tenías flex-start, cámbialo a center */
-      text-align: left; /* textos siguen alineados a la izquierda */
-    }
-  
-
+  /* TÍTULO */
   h1 {
     color: #103056;
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 1rem;
+    animation: fadeIn 1s ease; /* Animación de entrada */
 
     @media (min-width: 768px) {
-      font-size: 32px; /* 👈 Títulos más grandes en desktop */
+      font-size: 32px; /* Títulos más grandes en desktop */
     }
-}
-p {
+  }
+
+  /* PÁRRAFO */
+  p {
     color: #000500;
     margin-bottom: 2rem;
     font-size: 16px;
+    animation: fadeIn 1.2s ease; /* Animación de entrada */
 
     @media (min-width: 768px) {
-      font-size: 18px; /* 👈 Texto un poquito más grande */
+      font-size: 18px; /* Texto más grande */
     }
   }
-  
-  }
-  
-  .background-box {
-    background-color: #47E6C4;
+}
+
+/* CUADRO DE FONDO DE LA IMAGEN */
+.background-box {
+  background-color: #47E6C4;
   width: 200px;
   height: 200px;
   border-radius: 2rem;
@@ -69,66 +85,104 @@ p {
   align-items: center;
   justify-content: center;
   position: relative;
+  animation: popIn 1.5s ease; /* Animación pop */
 
   @media (min-width: 768px) {
-    width: 250px; /* 👈 Fondo más grande en desktop */
+    width: 250px;
     height: 250px;
   }
 }
 
-  .foreground-image {
-    width: 400px; /* Más grande que el fondo */
-    height: auto;
-    object-fit: contain;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centra la imagen */
-    z-index: 2; /* Se asegura que esté por ENCIMA */
-    @media (min-width: 768px) {
-        width: 450px; /* 👈 Imagen más grande en desktop */
-      }
-  }
-  
+/* IMAGEN FRONTAL */
+.foreground-image {
+  width: 400px;
+  height: auto;
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centrado perfecto */
+  z-index: 2;
 
-  .right {
-    flex: 1;
+  @media (min-width: 768px) {
+    width: 450px; /* Imagen más grande en desktop */
+  }
+}
+
+/* COLUMNA DERECHA (FORMULARIO) */
+.right {
+  flex: 1;
   min-width: 300px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  align-items: center; /* Centra en mobile */
+  align-items: center; /* Centrado en mobile */
+  animation: fadeInRight 1.3s ease; /* Animación de entrada lateral */
 
   @media (min-width: 768px) {
     align-items: flex-start; /* Normal en desktop */
   }
-  
-    .full-width {
-      width: 100%;
-    }
-  
-    .terms {
-        margin: 1rem 0;
-    }
-  
-    .error {
-      color: red;
-      font-size: 0.75rem;
-      margin-bottom: 1rem;
-    }
-  
-    .submit-button {
-      background-color: #47e6c1;
-      color: #000;
-      font-weight: bold;
-      &:hover {
-        background-color: #3dd1ad;
-      }
 
-      .link {
-        color: #1976d2;
-        cursor: pointer;
-        text-decoration: underline;
-      }
+  /* INPUTS full width */
+  .full-width {
+    width: 100%;
+  }
+
+  /* Check de términos */
+  .terms {
+    margin: 1rem 0;
+  }
+
+  /* Mensajes de error */
+  .error {
+    color: red;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Botón de enviar */
+  .submit-button {
+    background-color: #47e6c1;
+    color: #000;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+
+    &:hover {
+      background-color: #3dd1ad;
+      transform: scale(1.05); /* Efecto de zoom en hover */
     }
   }
+
+  /* Enlaces */
+  .link {
+    color: #1976d2;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}
+
+/* --- ANIMACIONES PERSONALIZADAS --- */
+
+/* Fade In suave */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Fade In hacia arriba */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade In hacia la derecha */
+@keyframes fadeInRight {
+  0% { opacity: 0; transform: translateX(30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Efecto Pop */
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}

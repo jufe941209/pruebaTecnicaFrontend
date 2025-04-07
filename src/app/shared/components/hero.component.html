@@ -1,20 +1,29 @@
-<!-- Breadcrumb arriba del hero -->
+<!-- Breadcrumb arriba del Hero -->
 <div class="breadcrumb-wrapper">
+  <!-- Icono de casa -->
   <mat-icon class="home-icon">home</mat-icon>
+
+  <!-- Texto de breadcrumb -->
   <span class="breadcrumb-text">
     HOME / <span class="breadcrumb-active">Lorem ipsum dolor sit amet</span>
   </span>
 </div>
 
-
+<!-- Sección del Hero -->
 <section class="hero-wrapper">
-  <!-- Hero principal con imagen y contenido -->
-  <div class="hero-content">
+  <div class="hero-content" id="heroContent">
+    <!-- Subtítulo pequeño -->
     <p class="hero-subtitle">LOREM IPSUM DOLOR SIT AMET</p>
+
+    <!-- Título principal -->
     <h1 class="hero-title">Consectetur Adipiscing Elit Posuere</h1>
+
+    <!-- Descripción -->
     <p class="hero-description">
       Lorem ipsum dolor sit amet consectetur adipiscing elit posuere blandit quam, himenaeos eros nunc.
     </p>
+
+    <!-- Botón de acción principal -->
     <button mat-raised-button color="primary" class="hero-button">
       Click Here
       <mat-icon>open_in_new</mat-icon>
@@ -22,12 +31,16 @@
   </div>
 </section>
 
+<!-- Sección de Tarjetas -->
 <section class="cards-section">
+  <!-- Título de la sección -->
   <h2 class="section-title">Aenean facilisis, enim eu bibendum sagittis</h2>
-  
+
+  <!-- Contenedor de tarjetas -->
   <div class="cards-grid">
-    <!-- Card 1 -->
-    <div class="card">
+    
+    <!-- Tarjeta 1 -->
+    <div class="card fade-up">
       <img src="assets/images/img1.png" alt="Imagen 1" />
       <div class="card-overlay">
         <h3>Lorem ipsum</h3>
@@ -38,8 +51,8 @@
       </div>
     </div>
 
-    <!-- Card 2 -->
-    <div class="card">
+    <!-- Tarjeta 2 -->
+    <div class="card fade-up" style="animation-delay: 0.2s;">
       <img src="assets/images/img2.jpeg" alt="Imagen 2" />
       <div class="card-overlay">
         <h3>Dolor sit amet</h3>
@@ -50,8 +63,8 @@
       </div>
     </div>
 
-    <!-- Card 3 -->
-    <div class="card">
+    <!-- Tarjeta 3 -->
+    <div class="card fade-up" style="animation-delay: 0.4s;">
       <img src="assets/images/img3.jpeg" alt="Imagen 3" />
       <div class="card-overlay">
         <h3>Consectetur adipiscing</h3>
@@ -61,5 +74,6 @@
         </button>
       </div>
     </div>
+
   </div>
 </section>

@@ -1,68 +1,151 @@
+  // Section Container: Background image and full center alignment
 .responsive-section {
-    background-image: url('/assets/images/piso.png');
-    background-size: cover;
-    background-position: center;
-    height: 85vh;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    padding: 2rem 1rem;
-    text-align: center;
+  background-image: url('/assets/images/piso.png');
+  background-size: cover;
+  background-position: center;
+  min-height: 85vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  padding: 4rem 2rem;
+  text-align: center;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInSection 1.5s ease forwards;
+}
+
+// Content Wrapper: Layout constraints for the text and button
+.content {
+  max-width: 800px;
+  width: 100%;
+  margin-top: -2vh;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: contentAppear 1.2s ease forwards;
+  animation-delay: 0.5s;
+}
+
+// Title Text: Main heading with fade and slide animation
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: fadeSlideDown 1s ease forwards;
+  animation-delay: 0.8s;
+}
+
+// Description Text: Supporting paragraph with fade and slide animation
+.description {
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 1s ease forwards;
+  animation-delay: 1s;
+}
+
+// Call-to-action Button: Animated zoom-in button with slight delay
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #1de9b6;
+  color: #103056;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 6px;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: zoomInButton 0.8s ease forwards;
+  animation-delay: 1.4s;
+
+  mat-icon {
+    font-size: 1.5rem;
   }
-  
+}
+
+// Responsive Design: Font sizes and spacing for bigger screens
+@media (min-width: 768px) {
+  .responsive-section {
+    min-height: 75vh;
+    padding: 6rem 4rem;
+  }
+
   .content {
-    max-width: 600px;
-    width: 100%;
-    margin-top: -4vh; 
+    margin-top: 0;
   }
-  
+
   .title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 1.5rem; 
+    font-size: 4rem;
+    margin-bottom: 2.5rem;
   }
-  
+
   .description {
-    font-size: 16px;
-    margin-bottom: 2rem; 
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
   }
-  
+
   .cta-button {
-    width: 100%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    background-color: #1de9b6 !important;
-    color: #103056 !important;
+    font-size: 1.3rem;
   }
-  
-  @media (min-width: 768px) {
-    .responsive-section {
-      height: 75vh;
-      padding: 3rem 2rem;
-    }
-  
-    .content {
-      margin-top: -2vh;
-    }
-  
-    .title {
-        font-size: 2.2rem;
-        margin-bottom: 2rem;
-      }
-  
-      .description {
-        font-size: 1.1rem;
-        margin-bottom: 2.5rem;
-      }
-  
-    .cta-button {
-      width: auto; /* ya no ocupa todo el ancho */
-      padding: 0.75rem 2rem;
-      font-size: 1rem;
-      border-radius: 4px;
-    }
+}
+
+// Animations: Keyframes
+
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
   }
-  
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentAppear {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomInButton {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

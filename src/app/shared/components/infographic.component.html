@@ -1,20 +1,27 @@
+<!-- Contenedor principal de la sección de preguntas frecuentes -->
 <div class="faq-container">
-    <h2 class="faq-title">Lorem ipsum
-        dolor sit amet</h2>
-  
-    <div *ngFor="let faq of faqs; let i = index" class="faq-item">
-      <button 
-        class="faq-question" 
-        [class.open]="openedIndex === i"
-        (click)="toggle(i)"
-      >
-        {{ faq.question }}
-        <span class="arrow">▼</span>
-      </button>
-  
-      <div class="faq-answer" [class.open]="openedIndex === i">
-        {{ faq.answer }}
-      </div>
+
+  <!-- Título principal de la sección -->
+  <h2 class="faq-title">Lorem ipsum dolor sit amet</h2>
+
+  <!-- Itera sobre la lista de preguntas frecuentes (faqs) -->
+  <div *ngFor="let faq of faqs; let i = index" class="faq-item">
+
+    <!-- Botón que muestra la pregunta -->
+    <button 
+      class="faq-question" 
+      [class.open]="openedIndex === i"
+      (click)="toggle(i)"
+    >
+      {{ faq.question }}
+      <span class="arrow">▼</span>
+    </button>
+
+    <!-- Contenedor de la respuesta -->
+    <div class="faq-answer" [class.open]="openedIndex === i">
+      {{ faq.answer }}
     </div>
+
   </div>
-  
+
+</div>

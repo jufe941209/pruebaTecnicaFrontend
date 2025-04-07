@@ -1,42 +1,52 @@
 <section class="testimonials-section">
-    <div class="testimonials-container">
-  
-      <!-- Fila 1: Título + nombres (solo desktop) -->
-      <div class="testimonials-left">
-        <h2 class="testimonials-title">Lorem ipsum dolor sit amet</h2>
-  
-        <!-- Right names for desktop -->
-        <div class="testimonials-right">
-          <div 
-            *ngFor="let testimonial of testimonials; let i = index"
-            class="testimonial-name-box"
-            [class.active]="i === currentIndex"
-            (click)="selectTestimonial(i)">
-            {{ testimonial.name }}
-          </div>
+  <div class="testimonials-container">
+
+    <!-- Fila 1: Título + nombres (solo desktop) -->
+    <div class="testimonials-left">
+      <!-- Título principal de la sección -->
+      <h2 class="testimonials-title">Lorem ipsum dolor sit amet</h2>
+
+      <!-- Lista de nombres de testimonios (solo visible en desktop) -->
+      <div class="testimonials-right">
+        <div 
+          *ngFor="let testimonial of testimonials; let i = index"
+          class="testimonial-name-box"
+          [class.active]="i === currentIndex"
+          (click)="selectTestimonial(i)">
+          {{ testimonial.name }}
         </div>
       </div>
-  
-      <!-- Fila 2: Mobile (nombre + flecha) + Imagen + texto -->
-      <div class="testimonial-content">
-        <!-- SOLO EN MOBILE: Nombre + flecha -->
-        <div class="testimonial-header">
-          <div class="testimonial-name-box">
-            {{ testimonials[currentIndex].name }}
-          </div>
-          <button class="arrow-button" (click)="nextTestimonial()">
-            <span class="arrow">→</span>
-          </button>
-        </div>
-  
-        <!-- Imagen y descripción -->
-        <div class="testimonial-card">
-          <img [src]="testimonials[currentIndex].image" alt="Testimonial image" class="testimonial-image" />
-          <p class="testimonial-text" [innerHTML]="testimonials[currentIndex].text"></p>
-        </div>
-      </div>
-  
     </div>
-  </section>
-  
-  
+
+    <!-- Fila 2: Mobile (nombre + flecha) + Imagen + texto -->
+    <div class="testimonial-content">
+
+      <!-- SOLO EN MOBILE: Nombre actual + botón para pasar al siguiente testimonio -->
+      <div class="testimonial-header">
+        <div class="testimonial-name-box">
+          {{ testimonials[currentIndex].name }}
+        </div>
+
+        <!-- Botón flecha para cambiar de testimonio -->
+        <button class="arrow-button" (click)="nextTestimonial()">
+          <span class="arrow">→</span>
+        </button>
+      </div>
+
+      <!-- Imagen y descripción del testimonio actual -->
+      <div class="testimonial-card">
+        <img 
+          [src]="testimonials[currentIndex].image" 
+          alt="Testimonial image" 
+          class="testimonial-image" 
+        />
+        <p 
+          class="testimonial-text" 
+          [innerHTML]="testimonials[currentIndex].text">
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>

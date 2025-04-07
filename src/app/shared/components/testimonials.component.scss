@@ -1,73 +1,79 @@
+// Sección principal de testimonios
 .testimonials-section {
-    padding: 20px;
+  padding: 20px;
+
+  @media (min-width: 768px) {
+    padding: 20px 5rem; // Padding lateral de 5rem para desktop
   }
-  
-  .testimonials-container {
-    display: flex;
+}
+
+// Contenedor general de la sección
+.testimonials-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media (min-width: 768px) {
     flex-direction: column;
-    gap: 30px;
-  
-    @media (min-width: 768px) {
-      flex-direction: column;
-      gap: 20px; /* Separación entre fila 1 (título+nombres) y fila 2 (contenido) */
-    }
+    gap: 20px; // Menor separación entre título+nombres y contenido en desktop
   }
-  
-  .testimonials-left {
-    flex: 1;
-    text-align: left;
-    position: relative;
-  
-    @media (min-width: 768px) {
-      display: flex;
-      flex-direction: row; /* Título y nombres en fila */
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-    }
+}
+
+// Contenedor del título y los nombres
+.testimonials-left {
+  flex: 1;
+  text-align: left;
+  position: relative;
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row; // Título y nombres alineados en fila
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
   }
-  
+}
 
-  .testimonials-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #103056;
-    margin-bottom: 16px;
-  
-    @media (min-width: 768px) {
-      font-size: 32px;
-      margin-bottom: 0;
-    }
+// Título de la sección
+.testimonials-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #103056;
+  margin-bottom: 16px;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+    margin-bottom: 0;
   }
+}
 
- /* Mobile: Nombre + flecha */
-
-  .testimonial-header {
+// Header solo visible en mobile (nombre + flecha)
+.testimonial-header {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
 
   @media (min-width: 768px) {
-    display: none; /* Ocultar en desktop */
+    display: none; // Oculto en desktop
   }
 }
-  
-/* Contenedor de nombres en desktop */
 
+// Contenedor de nombres de testimonios (solo desktop)
 .testimonials-right {
-    display: none;
-  
-    @media (min-width: 768px) {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 40px;
-    }
+  display: none;
+
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap; /* ⚡️ Permite que los nombres bajen si no caben */
+    justify-content: center; /* Opcional: centra los nombres */
   }
+}
 
-  /* Caja de nombres */
-
+// Caja individual de nombre de testimonio
 .testimonial-name-box {
   background-color: #f0f0f0;
   color: #103056;
@@ -82,6 +88,7 @@
   transition: background-color 0.3s ease, color 0.3s ease, border-bottom 0.3s ease;
   cursor: pointer;
 
+  // Estado activo (testimonio seleccionado)
   &.active {
     background-color: #103056;
     color: white;
@@ -97,98 +104,99 @@
   }
 }
 
-/* Flecha */
+// Botón de flecha para cambiar de testimonio (solo en mobile)
 .arrow-button {
-    background: none;
-    border: none;
-    font-size: 32px;
-    color: #103056;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    margin: 0;
-    display: flex;
-    align-items: center;
-  
-    @media (min-width: 768px) {
-      display: none;
-    }
-  }
-  
-  .arrow {
-    display: inline-block;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .arrow-button:hover .arrow {
-    transform: scale(1.2);
-  }
-  
-  /* Contenedor imagen + texto */
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: #103056;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  min-width: 32px; /* ✨ Evita que se encoja mucho en pantallas pequeñas */
 
-  .testimonial-content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  
-    @media (min-width: 768px) {
-        width: 100%;
-        margin-top: 40px;
-        padding: 0 80px;
-        display: grid;
-        grid-template-columns: 400px 400px; /* Imagen + Texto */
-        gap: 40px;
-        align-items: start;
-        justify-content: end; /* Pegado a la derecha */
-        box-sizing: border-box;
-      }
-      
+  @media (min-width: 768px) {
+    display: none;
   }
+}
+// Icono de la flecha dentro del botón
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+}
 
-  .testimonial-card {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    max-width: 100%;
-  
-    @media (min-width: 768px) {
-      display: contents; /* Liberamos la grilla para que imagen y texto fluyan como columnas */
-    }
-  }
+// Animación al pasar el mouse sobre la flecha
+.arrow-button:hover .arrow {
+  transform: scale(1.2);
+}
 
-  
-  .testimonial-image {
+// Contenedor de la imagen y el texto del testimonio
+.testimonial-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (min-width: 768px) {
     width: 100%;
-    height: auto;
-    border-radius: 16px;
-    aspect-ratio: 400 / 228;
-    object-fit: cover;
-  
-    @media (min-width: 768px) {
-      width: 100%;
-    }
+    margin-top: 40px;
+    padding: 0 80px;
+    display: grid;
+    grid-template-columns: 400px 400px; // Dos columnas: imagen y texto
+    gap: 40px;
+    align-items: start;
+    justify-content: end;
+    box-sizing: border-box;
   }
-  
-  .testimonial-text {
-    font-size: 16px;
-    color: #333;
+}
 
-  
-    @media (min-width: 768px) {
-      max-width: 600px;
-      text-align: right; 
-    }
-  }
-  
-  .testimonials-right {
-    display: none; /* Móvil: oculto */
-    
-    @media (min-width: 768px) {
-      display: flex; /* Desktop: mostrar */
-      flex-direction: row; /* fila horizontal */
-      align-items: center;
-      gap: 40px; /* separación entre nombres */
-    }
-  }
-  
+// Card que contiene imagen y texto
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 100%;
 
-  
+  @media (min-width: 768px) {
+    display: contents; // Imagen y texto fluyen libremente en columnas
+  }
+}
+
+// Imagen del testimonio
+.testimonial-image {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  aspect-ratio: 400 / 228;
+  object-fit: cover;
+  animation: floaty 4s ease-in-out infinite alternate; // ANIMACIÓN RARA Y CHEVERE 🚀
+
+  @media (min-width: 768px) {
+    width: 100%;
+  }
+}
+
+// Texto descriptivo del testimonio
+.testimonial-text {
+  font-size: 16px;
+  color: #333;
+
+  @media (min-width: 768px) {
+    max-width: 600px;
+    text-align: right;
+  }
+}
+
+// Definición de la animación flotante "rara y chévere"
+@keyframes floaty {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg) scale(1.02);
+  }
+  100% {
+    transform: translateY(0px) rotate(-1deg) scale(1);
+  }
+}

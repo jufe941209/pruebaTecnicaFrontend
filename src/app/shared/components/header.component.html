@@ -1,39 +1,46 @@
+<!-- Header Principal -->
 <mat-toolbar class="header-toolbar" color="transparent">
-
   <div class="header-container">
 
-    <div class="logo-section">
-      <img src="/assets/images/logo.svg" alt="Logo" class="logo-img" />
+    <!-- Sección del logo con animación hover -->
+    <div class="logo-section" matTooltip="Inicio">
+      <img src="/assets/images/logo.svg" alt="Logo" class="logo-img logo-animate" />
       <span class="logo-text">Logoipsum</span>
     </div>
 
+    <!-- Navegación principal -->
     <nav class="nav-links" [ngClass]="{ 'show-nav': isMenuOpen }">
-      <a href="#" class="nav-link">Home</a>
-      <a href="#" class="nav-link">Features</a>
-      <a href="#" class="nav-link">Testimonials</a>
+      <a href="#" class="nav-link" matTooltip="Ir a Inicio">Home</a>
+      <a href="#" class="nav-link" matTooltip="Ver características">Features</a>
+      <a href="#" class="nav-link" matTooltip="Ver testimonios">Testimonials</a>
     </nav>
 
+    <!-- Botones de acción -->
     <div class="right-section">
+
+      <!-- Botones visibles en escritorio -->
       <div class="desktop-buttons">
-        <button class="desktop-btn">
+        <button class="desktop-btn" matRipple>
           <img src="/assets/images/chat.svg" alt="chat" />
           Click Here
         </button>
-        <button class="desktop-btn">
+        <button class="desktop-btn" matRipple>
           <img src="/assets/images/file.svg" alt="file" />
           Click Here
         </button>
       </div>
     
+      <!-- Acciones móviles -->
       <div class="mobile-actions">
-        <button mat-icon-button>
+        <button mat-icon-button matTooltip="Buscar">
           <mat-icon>search</mat-icon>
         </button>
-        <button mat-icon-button (click)="toggleMenu()">
+        <button mat-icon-button (click)="toggleMenu()" matTooltip="Abrir menú">
           <mat-icon>menu</mat-icon>
         </button>
       </div>
+
     </div>
 
-</div>
+  </div>
 </mat-toolbar>

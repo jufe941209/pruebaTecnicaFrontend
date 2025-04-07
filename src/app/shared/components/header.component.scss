@@ -1,118 +1,181 @@
+/* ============================================
+  Header Principal
+============================================ */
 .header-toolbar {
   background-color: #47E6C4;
-  padding: 0 1rem;
-  height: 72px; 
+  padding: 0; /* nada de padding */
+  height: 80px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; 
 }
 
+/* ============================================
+  Contenedor del Header
+============================================ */
 .header-container {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto; // 
+  max-width: none; 
+  margin: 0;      
+  padding: 0 70px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* ============================================
+  Sección del Logo
+============================================ */
+.logo-section {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 1rem; 
+  gap: 8px;
 }
 
-  
-  .logo-section {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
+/* Texto del logo (solo visible en escritorio) */
+.logo-text {
+  display: none;
+}
+
+@media (min-width: 769px) {
   .logo-text {
-    display: none;
-  
-    @media (min-width: 769px) {
-      display: inline-block;
-      margin-left: 0.5rem;
-      font-weight: bold;
-      color: #103056;
-      font-size: 1.2rem;
-    }
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-weight: bold;
+    color: #103056;
+    font-size: 1.2rem;
   }
-  
+}
+
+/* Animación del logo al hacer hover */
+.logo-section img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo-section img:hover {
+  transform: scale(1.1);
+}
+
+/* ============================================
+  Navegación Principal
+============================================ */
 .nav-links {
   display: none;
-
-  &.show-nav {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 72px; 
-    right: 0;
-    background-color: white;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    z-index: 999;
-    gap: 1rem;
-
-    a {
-      color: #000;
-      font-weight: 500;
-    }
-  }
 }
+
+/* Menú desplegable móvil con animación */
+.nav-links.show-nav {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 72px; 
+  right: 0;
+  background-color: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  z-index: 999;
+  gap: 1rem;
+  animation: fadeInDown 0.5s ease-in-out;
+}
+
+/* Links de navegación */
+.nav-links.show-nav a {
+  color: #000;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+/* Animación al pasar el mouse sobre los links */
+.nav-links.show-nav a:hover {
+  color: #4f46e5;
+}
+
+/* ============================================
+  Sección de Botones y Acciones
+============================================ */
 .right-section {
   display: flex;
   align-items: center;
-  gap: 40px; // 
+  gap: 40px;
 }
 
+/* Botones visibles solo en escritorio */
+.desktop-buttons {
+  display: none;
+}
+
+@media (min-width: 768px) {
   .desktop-buttons {
-    display: none;
-
-    @media (min-width: 768px) {
-      display: flex;
-      gap: 16px;
-    }
-  }
-    
-  .desktop-btn {
-    background-color: #103056;
-    color: #F6F6F6;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    font-weight: 500;
     display: flex;
-    align-items: center;
     gap: 16px;
-    width: 162px;
-    height: 40px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-  
-    img {
-      width: 20px;
-      height: 20px;
-    }
-  
-    &:hover {
-      opacity: 0.9;
-      cursor: pointer;
-    }
   }
-  
+}
 
-  .mobile-actions {
+/* Estilos generales de los botones */
+.desktop-btn {
+  background-color: #103056;
+  color: #F6F6F6;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 162px;
+  height: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Imagen dentro del botón */
+.desktop-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Hover efecto para botones */
+.desktop-btn:hover {
+  background-color: #0d2547;
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+/* ============================================
+  Acciones en móviles
+============================================ */
+.mobile-actions {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  
-    button {
-      background-color: #F6F6F6;
-      border: 1px solid black;
-      border-radius: 6px;
-      width: 40px;
-      height: 40px;
-      color: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+}
+
+/* Estilo de botones en móviles */
+.mobile-actions button {
+  background-color: #F6F6F6;
+  border: 1px solid black;
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+  Animaciones personalizadas
+============================================ */
+/* Animación para mostrar el menú desde arriba */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20%);
   }
-  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
